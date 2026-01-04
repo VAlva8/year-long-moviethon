@@ -1,0 +1,19 @@
+.header{
+    display: flex;
+    align-items: center;
+    min-height: 2.5rem;
+    padding: 0.75rem;
+    background-color: #050505;
+    border-bottom: var(--border);
+    margin-bottom: var(--padding);
+    justify-content: space-between;
+}
+
+.headerText{
+    margin: 0;
+    font-weight: 300;
+}
+
+.sheetsIcon{
+    height: 1.25rem;
+}

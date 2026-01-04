@@ -1,0 +1,29 @@
+:root {
+  font-family: Helvetica, Arial, sans-serif;
+
+  color: #fafafa;
+  background-color: #151515;
+  --dark-background: #050505;
+
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+
+  --border-thickness: 1px;
+  --border-color: #303030;
+  --border: var(--border-thickness) solid var(--border-color);
+  --border-radius: 0.5rem;
+
+  --padding: 1.5rem;
+}
+
+html, body{
+  margin: 0;
+  height: 100%;
+  scrollbar-width: none;
+}
+
+#root{
+  height: 100%;
+  width: 100%;
+}

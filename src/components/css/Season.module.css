@@ -1,0 +1,42 @@
+.seasonContainer{
+    padding: 0 var(--padding) var(--padding);
+}
+
+.seasonNameContainer{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.lineDivider{
+    flex-grow: 1;
+    background: var(--border-color);
+    border: none;
+    margin: 0;
+    height: var(--border-thickness);
+}
+
+.seasonName{
+    margin: 0;
+    border-radius: var(--border-radius);
+    font-weight: 400;
+}
+
+.movieGrid{
+    display: grid;
+    margin: var(--padding) 0 0;
+    grid-template-columns: repeat(3, minmax(0,1fr));
+    gap: var(--padding);
+}
+
+@media(max-width: 1000px){
+    .movieGrid{
+        grid-template-columns: repeat(2, minmax(0,1fr));
+    } 
+}
+
+@media(max-width: 750px){
+    .movieGrid{
+        grid-template-columns: repeat(1, minmax(0,1fr));
+    } 
+}

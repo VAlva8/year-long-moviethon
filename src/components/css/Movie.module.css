@@ -1,0 +1,101 @@
+:root{
+    --person-dimension: 3rem
+}
+
+.movie{
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding);
+    border-radius: var(--border-radius);
+    background-color: var(--dark-background);
+    position: relative;
+}
+
+.person{
+    height: var(--person-dimension);
+    width: var(--person-dimension);
+    position: absolute;
+    left: calc(var(--padding)/2);
+    top: calc(var(--padding)/2);
+    border-radius: 50%;
+    border: 2px solid #151515;
+    box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.75);
+}
+
+.moviePoster{
+    aspect-ratio: 16/9;
+    width: 100%;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+}
+
+.movieInformation{
+   position: absolute;
+   bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    backdrop-filter: blur(15px) brightness(0.75);
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+}
+
+.movieTitle, .movieInformationText{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.movieTitle{
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.movieInformationText{
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 300;
+    font-style: italic;
+}
+
+@media(max-width: 1000px){
+    .movieTitle{
+        font-size: 1.25rem;
+    }
+
+    .movieInformationText{
+        font-size: 0.75rem;
+    }
+}
+/* 
+@media(max-width: 750px){
+    .movieTitle{
+        font-size: 1rem;
+    }
+    
+    .movieInformationText{
+        font-size: 0.5rem;
+    }
+} */
+
+.reviewsContainer{
+    /* aspect-ratio: 16/9; */
+    padding: calc(var(--padding) / 2) var(--padding);
+    display: flex;
+    flex-direction: column;
+    object-fit: cover;
+}
+
+.reviewsContainerTitle{
+    margin: 0;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.review{
+    font-weight: 400;
+    font-size: 1.25rem;
+    margin: 0 0 0.5rem;
+    white-space: nowrap;
+}
