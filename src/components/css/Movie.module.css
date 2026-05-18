@@ -94,4 +94,6 @@
     font-size: 1.25rem;
     margin: 0;
     white-space: nowrap;
+    width: 4rem;
+    text-align: right;
 }
