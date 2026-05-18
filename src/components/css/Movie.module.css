@@ -4,18 +4,20 @@
 
 .movie{
     display: flex;
+    aspect-ratio: 16/9;
     flex-direction: column;
     gap: var(--padding);
     border-radius: var(--border-radius);
     background-color: var(--dark-background);
     position: relative;
+    height: min-content;
 }
 
 .person{
     height: var(--person-dimension);
     width: var(--person-dimension);
     position: absolute;
-    left: calc(var(--padding)/2);
+    right: calc(var(--padding)/2);
     top: calc(var(--padding)/2);
     border-radius: 50%;
     border: 2px solid #151515;
@@ -25,20 +27,20 @@
 .moviePoster{
     aspect-ratio: 16/9;
     width: 100%;
+    height: 100%;
     object-fit: cover;
     border-radius: var(--border-radius);
 }
 
 .movieInformation{
-   position: absolute;
-   bottom: 0;
-    left: 0;
-    right: 0;
+    position: absolute;
+    bottom: 0.5rem;
+    left: 0.5rem;
     padding: 0.5rem;
-    box-sizing: border-box;
-    backdrop-filter: blur(15px) brightness(0.75);
-    border-bottom-left-radius: var(--border-radius);
-    border-bottom-right-radius: var(--border-radius);
+    width: min-content;
+    backdrop-filter: blur(10px) brightness(0.5);
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 .movieTitle, .movieInformationText{
@@ -49,7 +51,7 @@
 
 .movieTitle{
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
 }
 
 .movieInformationText{
@@ -60,27 +62,21 @@
 }
 
 @media(max-width: 1000px){
+    :root{
+        --person-dimension: 2.5rem;
+    }
+
     .movieTitle{
-        font-size: 1.25rem;
+        font-size: 1rem;
     }
 
     .movieInformationText{
         font-size: 0.75rem;
     }
 }
-/* 
-@media(max-width: 750px){
-    .movieTitle{
-        font-size: 1rem;
-    }
-    
-    .movieInformationText{
-        font-size: 0.5rem;
-    }
-} */
 
 .reviewsContainer{
-    /* aspect-ratio: 16/9; */
+    aspect-ratio: 16 / 9;
     padding: calc(var(--padding) / 2) var(--padding);
     display: flex;
     flex-direction: column;
@@ -96,6 +92,6 @@
 .review{
     font-weight: 400;
     font-size: 1.25rem;
-    margin: 0 0 0.5rem;
+    margin: 0;
     white-space: nowrap;
 }
