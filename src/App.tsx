@@ -26,56 +26,16 @@ function App() {
   return (
     <>
       <Season season='🌻 Spring'>
-        {movieData.filter((movie:MovieProps) => movie.season === 'Spring').map((movie:MovieProps) => <Movie
-        person={movie.person}
-        title={movie.title}
-        date={movie.date}
-        streamingService={movie.streamingService}
-        genre={movie.genre}
-        season={movie.season}
-        posterUrl={movie.posterUrl}
-        taylorReview={movie.taylorReview}
-        joseReview={movie.joseReview}
-        victorReview={movie.victorReview}/>)}
+        {movieData.filter((movie:MovieProps) => movie.season === 'Spring').map((movie:MovieProps) => <Movie {...movie} key={`spring-movie-${movie.date}`}/>)}
       </Season>
       <Season season='☀️ Summer'>
-        {movieData.filter((movie:MovieProps) => movie.season === 'Summer').map((movie:MovieProps) => <Movie
-        person={movie.person}
-        title={movie.title}
-        date={movie.date}
-        streamingService={movie.streamingService}
-        genre={movie.genre}
-        season={movie.season}
-        posterUrl={movie.posterUrl}
-        taylorReview={movie.taylorReview}
-        joseReview={movie.joseReview}
-        victorReview={movie.victorReview}/>)}
+        {movieData.filter((movie:MovieProps) => movie.season === 'Summer').map((movie:MovieProps) => <Movie {...movie} key={`summer-movie-${movie.date}`}/>)}
       </Season>
       <Season season='🍂 Fall'>
-        {movieData.filter((movie:MovieProps) => movie.season === 'Fall').map((movie:MovieProps) => <Movie
-        person={movie.person}
-        title={movie.title}
-        date={movie.date}
-        streamingService={movie.streamingService}
-        genre={movie.genre}
-        season={movie.season}
-        posterUrl={movie.posterUrl}
-        taylorReview={movie.taylorReview}
-        joseReview={movie.joseReview}
-        victorReview={movie.victorReview}/>)}
+        {movieData.filter((movie:MovieProps) => movie.season === 'Fall').map((movie:MovieProps) => <Movie {...movie} key={`fall-movie-${movie.date}`}/>)}
       </Season>
       <Season season='❄️ Winter'>
-        {movieData.filter((movie:MovieProps) => movie.season === 'Winter').map((movie:MovieProps) => <Movie
-        person={movie.person}
-        title={movie.title}
-        date={movie.date}
-        streamingService={movie.streamingService}
-        genre={movie.genre}
-        season={movie.season}
-        posterUrl={movie.posterUrl}
-        taylorReview={movie.taylorReview}
-        joseReview={movie.joseReview}
-        victorReview={movie.victorReview}/>)}
+        {movieData.filter((movie:MovieProps) => movie.season === 'Winter').map((movie:MovieProps) => <Movie {...movie} key={`winter-movie-${movie.date}`}/>)}
       </Season>
     </>
   )

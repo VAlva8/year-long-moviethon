@@ -4,43 +4,56 @@
 
 .movie{
     display: flex;
-    aspect-ratio: 16/9;
     flex-direction: column;
-    gap: var(--padding);
     border-radius: var(--border-radius);
-    background-color: var(--dark-background);
     position: relative;
     height: min-content;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    background-size: cover !important;
+    background-position: center !important;
+    overflow: hidden;
+}
+
+.movie::before {
+    content: '';
+    position: absolute;
+    inset: -2rem; 
+    background: inherit; 
+    filter: blur(10px) brightness(0.4);
+    z-index: 0;
 }
 
 .person{
     height: var(--person-dimension);
     width: var(--person-dimension);
-    position: absolute;
-    right: calc(var(--padding)/2);
-    top: calc(var(--padding)/2);
     border-radius: 50%;
-    border: 2px solid #151515;
     box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.75);
+}
+
+.moviePoster,
+.reviewsContainer,
+.movieInformationContainer {
+  position: relative;
+  z-index: 1;
 }
 
 .moviePoster{
     aspect-ratio: 16/9;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    background-position: center;
     border-radius: var(--border-radius);
 }
 
+.movieInformationContainer{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
 .movieInformation{
-    position: absolute;
-    bottom: 0.5rem;
-    left: 0.5rem;
-    padding: 0.5rem;
-    width: min-content;
-    backdrop-filter: blur(10px) brightness(0.5);
-    border-radius: var(--border-radius);
-    border: 1px solid rgba(0, 0, 0, 0.15);
+    flex-grow: 1;
+    max-width: calc( 100% - var(--person-dimension) - 0.75rem);
 }
 
 .movieTitle, .movieInformationText{
@@ -50,15 +63,14 @@
 }
 
 .movieTitle{
-    margin: 0;
+    margin: 0.25rem 0;
     font-size: 1.25rem;
 }
 
-.movieInformationText{
+.genre, .streamingService{
     margin: 0;
-    font-size: 1rem;
+    font-size: 0.75rem;
     font-weight: 300;
-    font-style: italic;
 }
 
 @media(max-width: 1000px){
@@ -90,7 +102,7 @@
 }
 
 .review{
-    font-weight: 400;
+    font-weight: 800;
     font-size: 1.25rem;
     margin: 0;
     white-space: nowrap;
