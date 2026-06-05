@@ -4,13 +4,14 @@ import toggleArrow from '../assets/toggleArrow.svg'
 
 interface MyComponentProps extends PropsWithChildren {
   season: string;
+  color: string
 }
 
-export default function Season({ season, children }: MyComponentProps){
+export default function Season({ season, color, children }: MyComponentProps){
     const [toggle, setToggle] = useState(true)
     return  <div className={style.seasonContainer}>
                 <div className={style.seasonNameContainer} onClick={() => setToggle(!toggle)}>
-                    <h1 className={style.seasonName}>{season}</h1>
+                    <h1 className={style.seasonName} style={{color: color}}>{season}</h1>
                     <hr className={style.lineDivider}/>
                     <img src={toggleArrow} style={toggle ? {height: '0.75rem', transform: 'rotate(90deg)'}: {height: '0.75rem'}} />
                 </div>
