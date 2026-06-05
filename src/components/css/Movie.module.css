@@ -1,70 +1,63 @@
-:root{
-    --person-dimension: 3rem
-}
-
 .movie{
+    height: min-content;
     display: flex;
     flex-direction: column;
+    gap: var(--half-padding);
+    background: var(--card-bg);
+    border: var(--border);
     border-radius: var(--border-radius);
-    position: relative;
-    height: min-content;
-    gap: 0.5rem;
-    padding: 0.5rem;
-    background-size: cover !important;
-    background-position: center !important;
-    overflow: hidden;
-}
-
-.movie::before {
-    content: '';
-    position: absolute;
-    inset: -2rem; 
-    background: inherit; 
-    filter: blur(10px) brightness(0.4);
-    z-index: 0;
+    padding: var(--half-padding);
 }
 
 .person{
     height: var(--person-dimension);
     width: var(--person-dimension);
     border-radius: 50%;
-    box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.75);
-}
-
-.moviePoster,
-.reviewsContainer,
-.movieInformationContainer {
-  position: relative;
-  z-index: 1;
 }
 
 .moviePoster{
     aspect-ratio: 16/9;
+    height: auto;
     width: 100%;
     background-position: center;
+    overflow: hidden;
     border-radius: var(--border-radius);
+    box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.5);
+}
+
+.moviePosterImage{
+    max-width: 100%;
 }
 
 .movieInformationContainer{
     display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    justify-content: space-between;
+    gap: var(--half-padding);
 }
 
-.movieInformation{
-    flex-grow: 1;
-    max-width: calc( 100% - var(--person-dimension) - 0.75rem);
-}
-
-.movieTitle, .movieInformationText{
+.movieInformation, .movieTitle{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
+.titleService{
+    display: flex;
+    align-items: center;
+    gap: var(--half-padding);
+    margin-bottom: var(--quarter-padding);
+}
+
 .movieTitle{
-    margin: 0.25rem 0;
+    margin: 0;
     font-size: 1.25rem;
+}
+
+.streamingService{
+    padding: var(--eigth-padding) var(--half-padding);
+    background: var(--hover-bg);
+    border-radius: var(--border-radius);
+    white-space: nowrap;
 }
 
 .genre, .streamingService{
@@ -89,16 +82,20 @@
 
 .reviewsContainer{
     aspect-ratio: 16 / 9;
-    padding: calc(var(--padding) / 2) var(--padding);
+    padding: var(--half-padding) var(--padding);
     display: flex;
     flex-direction: column;
     object-fit: cover;
+    border-radius: var(--border-radius);
+    box-shadow: inset 0px 0px 10px 1px rgba(0, 0, 0, 0.23);
+    gap: var(--quarter-padding);
 }
 
 .reviewsContainerTitle{
     margin: 0;
     text-align: center;
     font-size: 1.5rem;
+    color: var(--text-main);
 }
 
 .review{

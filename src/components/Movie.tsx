@@ -18,6 +18,21 @@ export interface MovieProps{
     victorReview: number | null;
 }
 
+function serviceColors(service: string): { color: string; background: string } {
+    switch (service.toLocaleLowerCase()) {
+        case 'amazon prime':   return { color: '#FF9900', background: '#1a1200' };
+        case 'disney+':        return { color: '#00A8E0', background: '#001a2e' };
+        case 'hbo max':        return { color: '#0063E5', background: '#00102e' };
+        case 'hulu':           return { color: '#1CE783', background: '#0a1a0f' };
+        case 'netflix':        return { color: '#E50914', background: '#1a0a0a' };
+        case 'paramount+':     return { color: '#1674EA', background: '#041229' };
+        case 'peacock':        return { color: '#7B2FBE', background: '#140a1f' };
+        case 'tubi':           return { color: '#F5A623', background: '#1a1200' };
+        case 'youtube':        return { color: '#FF3000', background: '#1a0800' };
+        default:               return { color: '#9E9EB8', background: '#14141f' };
+    }
+}
+
 export default function Movie({person, title, date, streamingService, genre, posterUrl, taylorReview, joseReview, victorReview}:MovieProps){
     const [seeReviews, setSeeReviews] = useState(false)
 
@@ -35,8 +50,8 @@ export default function Movie({person, title, date, streamingService, genre, pos
 
     const moviePosterLink = posterUrl ? posterUrl : nullMovie;
 
-    return  <div className={style.movie} onClick={() => setSeeReviews(!seeReviews)}  style={{background: `url(${moviePosterLink})`}}>
-                <div className={style.moviePoster} style={!seeReviews ? {background: `url(${moviePosterLink})`, backgroundSize: 'cover', backgroundPosition: 'center'} : {background: `transparent`}}>
+    return  <div className={style.movie} onClick={() => setSeeReviews(!seeReviews)}>
+                <div className={style.moviePoster} style={!seeReviews ? {background: `url(${moviePosterLink})`, backgroundSize: 'cover', backgroundPosition: 'center'} : {background: `transparent`, boxShadow: 'none'}}>
                     {seeReviews &&
                         <>
                             <div className={style.reviewsContainer} onClick={() => setSeeReviews(!seeReviews)}>
@@ -60,21 +75,28 @@ export default function Movie({person, title, date, streamingService, genre, pos
 
                 <div className={style.movieInformationContainer}>
                     <div className={style.movieInformation}>
-                        <h1 className={style.movieTitle}>{title ? title : 'Not Chosen Yet'}</h1>
+                        <div className={style.titleService}>
+                            <h1 className={style.movieTitle}>{title ? title : 'Not Chosen Yet'}</h1>
+                            {streamingService && (() => {
+                                const { color, background } = serviceColors(streamingService);
+                                return (
+                                    <p
+                                        className={style.streamingService}
+                                        style={{ color, backgroundColor: background }}
+                                    >
+                                        {streamingService}
+                                    </p>
+                                );
+                            })()}
+                        </div>
                         <div style={{display: 'flex', gap: '0.5rem', alignItems: 'center'}}>
                             {genre &&
                                 <>
                                     <p className={style.genre}>{genre}</p>
-                                    <span style={{height: '2px', width: '2px', background: 'white', borderRadius: '50%'}}/>
+                                    <span style={{height: '2px', width: '2px', background: 'var(--text-body)', borderRadius: '50%'}}/>
                                 </>
                             }
-                            {streamingService &&
-                                <>
-                                    <p className={style.streamingService}>{streamingService}</p>
-                                    <span style={{height: '2px', width: '2px', background: 'white', borderRadius: '50%'}}/>
-                                </>
-                            }
-                            <p className={style.streamingService}>{date}</p>
+                            <p className={style.genre}>{date}</p>
                         </div>
                     </div>
                     <img className={style.person} src={person === 'Taylor' ? taylor : (person === 'Jose' ? jose : victor)} />

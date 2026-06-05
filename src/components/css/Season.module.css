@@ -1,11 +1,11 @@
 .seasonContainer{
-    padding: 0 var(--padding) var(--padding);
+    padding: var(--padding) var(--padding) 0;
 }
 
 .seasonNameContainer{
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: var(--padding);
 }
 
 .lineDivider{
