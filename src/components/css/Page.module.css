@@ -2,4 +2,6 @@
     flex-grow: 1;
     overflow-y: auto;
     scrollbar-width: none;
+    background: var(--main-bg);
+    padding-bottom: var(--padding);
 }

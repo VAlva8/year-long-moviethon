@@ -4,11 +4,12 @@ import toggleArrow from '../assets/toggleArrow.svg'
 
 interface MyComponentProps extends PropsWithChildren {
   season: string;
-  color: string
+  color: string;
+  initialToggle: boolean;
 }
 
-export default function Season({ season, color, children }: MyComponentProps){
-    const [toggle, setToggle] = useState(true)
+export default function Season({ season, color, initialToggle, children }: MyComponentProps){
+    const [toggle, setToggle] = useState(initialToggle)
     return  <div className={style.seasonContainer}>
                 <div className={style.seasonNameContainer} onClick={() => setToggle(!toggle)}>
                     <h1 className={style.seasonName} style={{color: color}}>{season}</h1>
